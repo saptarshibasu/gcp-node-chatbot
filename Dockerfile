@@ -1,14 +1,12 @@
 FROM node:10.16.0 AS chatbotuibuilder
-RUN useradd --create-home --shell /bin/bash chatbotui; \
-    chown -R chatbotui /home/chatbotui
-USER chatbotui
-WORKDIR /home/chatbotui
-COPY app-ui/ /home/chatbotui
-RUN mkdir /home/chatbotui/.npm; \
-    npm config set prefix /home/chatbotui/.npm; \
+USER node
+WORKDIR /home/node
+COPY app-ui/ /home/node
+RUN mkdir /home/node/.npm; \
+    npm config set prefix /home/node/.npm; \
     su npm install --quiet --no-progress -g webpack@4.8.3; \
 	npm install --quiet --no-progress;
-ENV PATH=/home/chatbotui/.npm/bin:$PATH
+ENV PATH=/home/node/.npm/bin:$PATH
 RUN	npm run build
 
 FROM keymetrics/pm2:10-alpine
