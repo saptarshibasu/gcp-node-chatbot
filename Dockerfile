@@ -5,6 +5,7 @@ USER chatbotui
 WORKDIR /home/chatbotui
 COPY app-ui/ /home/chatbotui
 RUN mkdir /home/chatbotui/.npm; \
+    mkdir /home/chatbotui/dist; \
     npm config set prefix /home/chatbotui/.npm; \
     npm install --quiet --no-progress -g webpack@4.8.3; \
 	npm install --quiet --no-progress;
