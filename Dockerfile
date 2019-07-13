@@ -3,6 +3,8 @@ USER node
 WORKDIR /home/node
 COPY app-ui/ /home/node
 RUN mkdir /home/node/.npm; \
+    npm config set user 0; \
+    npm config set unsafe-perm true; \
     npm config set prefix /home/node/.npm; \
     npm install --quiet --no-progress -g webpack@4.8.3; \
 	npm install --quiet --no-progress;
