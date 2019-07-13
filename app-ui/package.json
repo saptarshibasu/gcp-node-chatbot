@@ -1,0 +1,44 @@
+{
+  "name": "gcp-node-chatbot",
+  "version": "1.0.0",
+  "description": "A chatbot developed with node and Google DialogFlow and deployed in Google Kubernetes",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -p",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saptarshibasu/gcp-node-chatbot.git"
+  },
+  "keywords": [
+    "chatbot",
+    "nodejs",
+    "kubernetes",
+    "dialogflow"
+  ],
+  "author": "Saptarshi Basu",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/saptarshibasu/gcp-node-chatbot/issues"
+  },
+  "homepage": "https://github.com/saptarshibasu/gcp-node-chatbot#readme",
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "img-loader": "^3.0.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.5",
+    "sass-loader": "^7.0.1",
+    "webpack": "4.8.3",
+    "webpack-cli": "^2.1.3"
+  },
+  "dependencies": {
+    "aos": "^2.3.0",
+    "hamburgers": "^0.9.3"
+  }
+}
