@@ -1,0 +1,44 @@
+{
+  "name": "gcp-node-chatbot",
+  "version": "1.0.0",
+  "description": "A chatbot developed with node and Google DialogFlow and deployed in Google Kubernetes",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saptarshibasu/gcp-node-chatbot.git"
+  },
+  "keywords": [
+    "chatbot",
+    "nodejs",
+    "kubernetes",
+    "dialogflow"
+  ],
+  "author": "Saptarshi Basu",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/saptarshibasu/gcp-node-chatbot/issues"
+  },
+  "homepage": "https://github.com/saptarshibasu/gcp-node-chatbot#readme",
+  "dependencies": {
+    "@hapi/joi": "15.1.0",
+    "bluebird": "3.5.5",
+    "compression": "1.7.4",
+    "config": "3.1.0",
+    "cookie-parser": "1.4.4",
+    "csurf": "1.10.0",
+    "express": "4.17.1",
+    "express-async-errors": "3.1.1",
+    "helmet": "3.18.0",
+    "morgan": "1.9.1",
+    "ratelimiter": "3.3.0",
+    "winston": "3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "1.19.1",
+    "nsp": "3.2.1",
+    "safe-regex": "2.0.2"
+  }
+}
