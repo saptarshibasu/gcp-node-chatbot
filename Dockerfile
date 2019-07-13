@@ -4,7 +4,7 @@ WORKDIR /home/node
 COPY app-ui/ /home/node
 RUN mkdir /home/node/.npm; \
     npm config set prefix /home/node/.npm; \
-    su npm install --quiet --no-progress -g webpack@4.8.3; \
+    npm install --quiet --no-progress -g webpack@4.8.3; \
 	npm install --quiet --no-progress;
 ENV PATH=/home/node/.npm/bin:$PATH
 RUN	npm run build
