@@ -1,0 +1,108 @@
+.home {
+    margin: 0;
+    padding: 4rem 1.5rem;
+    background: $white;
+    height: 100vh;
+    border-top: solid .8rem #70ad47;
+    line-height: 4rem;
+    
+    @media only screen and (min-width: $desktop) {
+        padding: 5rem;
+    }
+    &__container {
+        border-radius: 1rem;
+        background: $light;
+        position: relative;
+        margin-bottom: 0;
+        padding: 4rem 5rem .5rem 5rem;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        &__speech-btn {
+            height: 10rem;
+            width: 10rem;
+
+            &,
+            &:link,
+            &:visited {
+                text-transform: uppercase;
+                letter-spacing: 0.3rem;
+                text-decoration: none;
+                display: inline-block;
+                border-radius: 50%;
+                transition: all .2s;
+                position: relative;
+                font-size: 1.5rem;
+                border: none;
+                cursor: pointer;
+                margin: 2rem 0;
+                line-height: 2rem;
+                font-weight: 400;
+
+                transform: translateY(-1px);
+                box-shadow: 0 .5rem 1rem rgba($black, .2);
+                &::after {
+                    transform: scaleX(1.4) scaleY(1.6);
+                    opacity: 0;
+                }
+
+            }
+            &:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 1rem 2rem rgba($black, .2);
+                &::after {
+                    transform: scaleX(1.4) scaleY(1.6);
+                    opacity: 0;
+                }
+            }
+            &:active,
+            &:focus {
+                outline: none;
+                transform: translateY(-1px);
+                box-shadow: 0 .5rem 1rem rgba($black, .2);
+            }        
+        }
+
+        &__transcript {
+            background-color: $white;
+            color: $primary;
+            height: 20rem;
+            width: 30rem;
+            margin: 4rem 4rem .5rem 4rem;
+            border-radius: 1rem;
+
+            @media only screen and (min-width: $desktop) {
+                height: 30rem;
+                width: 50rem;
+                margin: 2rem;
+            }
+        }
+    }
+}
+
+.microphone-on {
+    content: url('../img/microphone.svg');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    height: 4rem;
+    width: 4rem;
+    color: $primary;
+}
+
+.microphone-off {
+    content: url('../img/muted.svg');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    height: 4rem;
+    width: 4rem;
+    color: $primary;
+}
