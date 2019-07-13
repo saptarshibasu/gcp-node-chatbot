@@ -1,7 +1,6 @@
 FROM node:10.16.0 AS chatbotuibuilder
 RUN useradd --create-home --shell /bin/bash chatbotui; \
-    chown -R chatbotui /home/chatbotui; \
-    chmod -R 777 /home/chatbotui
+    chown -R chatbotui /home/chatbotui;
 USER chatbotui
 WORKDIR /home/chatbotui
 COPY app-ui/ /home/chatbotui
