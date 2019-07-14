@@ -16,7 +16,7 @@ app.use(compression());
 
 app.use(express.static('public'));
 
-app.use('/api/posts', posts);
+app.use('/api', posts);
 
 app.use(error);
 
