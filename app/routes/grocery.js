@@ -5,8 +5,8 @@ const router = express.Router();
 
 // const posts = require('../resources/posts.json');
 
-router.post('/grocery', async (req, res) => {
-    const agent = new WebhookClient({ req, res });
+router.post('/grocery', async (request, response) => {
+    const agent = new WebhookClient({ request, response });
 });
 
 function getPrice(agent) {
