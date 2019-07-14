@@ -142,6 +142,7 @@
         display: inline-block;
         border-radius: 1.5rem;
         margin: .3rem 0;
+        line-height: 3rem;
 
         &--agent {
             @extend .transcript-container__transcript;

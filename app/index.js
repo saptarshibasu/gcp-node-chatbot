@@ -5,7 +5,7 @@ const config = require('config');
 const http = require('http');
 const compression = require('compression');
 const helmet = require('helmet');
-const posts = require('./routes/posts');
+const grocery = require('./routes/grocery');
 const error = require('./middleware/error');
 
 const app = express();
@@ -16,7 +16,7 @@ app.use(compression());
 
 app.use(express.static('public'));
 
-app.use('/api', posts);
+app.use('/api', grocery);
 
 app.use(error);
 
