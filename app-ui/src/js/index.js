@@ -68,8 +68,5 @@ function stopMicrophone(element) {
 }
 
 function displayTranscript(transcript) {
-    $(".home__container__transcript").find("ul").append(`<li class="transcript-container--user"><span class="transcript-container__transcript--user">${transcript}</span></li>`);
-    if ($(".home__container__transcript ul").children().length > 4) {
-        $(".home__container__transcript ul li").first().remove();
-    }
+    $(".home__container__transcript").find("ul").prepend(`<li class="transcript-container--user"><span class="transcript-container__transcript--user">${transcript}</span></li>`);
 }
