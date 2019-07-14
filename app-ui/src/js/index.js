@@ -63,7 +63,7 @@ function acceptVoice(recognition, microphone) {
     recognition.onstart = function() { console.log("start") }
     recognition.onresult = function(event) { displayTranscript(event.results[0][0].transcript); }
     recognition.onerror = function(event) { stopMicrophone(); stopRecognition(); }
-    recognition.onend = function() { startRecognition() /*microphone.removeClass("microphone-on").addClass("microphone-off");*/ }
+    recognition.onend = function() { startRecognition() }
     recognition.start();
 }
 
@@ -81,8 +81,8 @@ function stopMicrophone(element) {
 }
 
 function displayTranscript(transcript) {
-    $(".home__container__transcript").find("ul").append(`<li>Me:  ${transcript}</li>`);
-    if($(".home__container__transcript ul").children().length > 8) {
+    $(".home__container__transcript").find("ul").append(`<li class="transcript-container--user"><span class="transcript-container__transcript--user">${transcript}</span></li>`);
+    if($(".home__container__transcript ul").children().length > 4) {
         $(".home__container__transcript ul li").first().remove();
     }
 }

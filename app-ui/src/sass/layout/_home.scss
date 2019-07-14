@@ -67,12 +67,11 @@
         }
 
         &__transcript {
-            background-color: $white;
-            color: $primary;
             height: 20rem;
             width: 30rem;
             margin: 4rem 4rem .5rem 4rem;
             border-radius: 1rem;
+            display: flex;
 
             @media only screen and (min-width: $desktop) {
                 height: 30rem;
@@ -81,11 +80,7 @@
             }
 
             ul {
-                margin: 5rem;
-                li {
-                    line-height: 1.5rem;
-                    padding: .4rem;
-                }
+                width: 100%;
             }
         }
     }
@@ -113,4 +108,52 @@
     height: 4rem;
     width: 4rem;
     color: $primary;
+}
+
+.user-transcript {
+    color: $black;
+    background-color: $lighter;
+
+}
+
+.agent-transcript {
+
+}
+
+.transcript-container {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+    &--agent {
+        @extend .transcript-container;
+        flex-direction: row-reverse;
+    }
+
+    &--user {
+        @extend .transcript-container;
+        flex-direction: row;
+    }
+
+    &__transcript {
+        border-radius: 1.5rem;
+        padding: .2rem 1.5rem;
+        list-style: none;
+        display: inline-block;
+        border-radius: 1.5rem;
+        margin: .3rem 0;
+
+        &--agent {
+            @extend .transcript-container__transcript;
+            color: $white;
+            background-color: $primary;
+        }
+
+        &--user {
+            @extend .transcript-container__transcript;
+            color: $black;
+            background-color: $lighter;
+        }
+    }
+    
 }
