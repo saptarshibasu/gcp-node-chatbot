@@ -1,0 +1,39 @@
+@mixin title($font-family, $default-font, $color, $font-size, $letter-spacing, $font-weight, $animation, $pad-vertical, $pad-horizontal, $text-align ) {
+    font-family: $font-family, $default-font;
+    color: $color;
+    font-size: $font-size;
+    letter-spacing: $letter-spacing;
+    display: block;
+    font-weight: $font-weight;
+    animation: $animation;
+    padding: $pad-vertical $pad-horizontal;
+    text-align: $text-align;
+}
+
+@mixin absolute-center {
+    right: 5%;
+    //transform: translate(-50%, 0);
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == mobile {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tablet {
+        @media only screen and (max-width: 48em) { @content };     //768px
+    }
+    @if $breakpoint == laptop {
+        @media only screen and (max-width: 62em) { @content };    //992px
+    }
+    @if $breakpoint == desktop {
+        @media only screen and (min-width: 87.5em) { @content };    //1400
+    }
+}
+
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

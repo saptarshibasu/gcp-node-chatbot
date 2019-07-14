@@ -7,7 +7,6 @@ var webpack = require('webpack'),
 
 module.exports = {
     entry: {
-        loader: './src/js/loader.js',
         main: './src/js/index.js'
     },
     output: {

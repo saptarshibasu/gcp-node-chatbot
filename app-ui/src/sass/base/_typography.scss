@@ -1,0 +1,9 @@
+.title {
+    &--main {
+        position: relative;
+        @include title('Raleway', sans-serif, $primary, 3rem, 0, 300, none, 2rem, 0, center);
+        @media only screen and (min-width: $tablet) {
+            @include title('Raleway', sans-serif, $primary, 4rem, 0, 300, none, 2rem, 0, center);
+        }
+    }
+}
