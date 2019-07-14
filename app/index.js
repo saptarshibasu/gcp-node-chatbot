@@ -9,7 +9,7 @@ const grocery = require('./routes/grocery');
 const error = require('./middleware/error');
 
 const app = express();
-winston.configure({transports: [new winston.transports.File({ filename: 'logfile.log' }) ]});
+winston.configure({transports: [new winston.transports.Console({format: winston.format.simple()})]});
 app.use(helmet());
 app.use(express.json());
 app.use(compression());
