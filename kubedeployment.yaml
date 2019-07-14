@@ -37,6 +37,7 @@ spec:
       containers:
         - name: chatbot
           image: gcr.io/gcp-node-chatbot/chatbot:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 4000
 ---
