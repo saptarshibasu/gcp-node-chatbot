@@ -47,5 +47,5 @@ Vagrant.configure("2") do |config|
     end
     config.vm.provision "shell", inline: $install
 	config.vm.provision "shell", inline: $installnpm, privileged: false
-	config.vm.provision "shell", inline: $runapp, privileged: false, run: 'always', env: {"MYENV" => ENV['MYENV']}
+	#config.vm.provision "shell", inline: $runapp, privileged: false, run: 'always', env: {"MYENV" => ENV['MYENV']}
 end
