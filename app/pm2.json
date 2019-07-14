@@ -2,6 +2,7 @@
     "name": "gcp-node-chatbot",
     "script": "index.js",
     "instances": "1",
+    "instance_var": "INSTANCE_ID",
     "env": {
       "NODE_ENV": "development"
     },
