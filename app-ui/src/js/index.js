@@ -45,7 +45,11 @@ function acceptVoice(recognition, microphone) {
     recognition.continuous = true;
 
     recognition.onstart = function () { console.log("start") }
-    recognition.onresult = function (event) { displayTranscript(event.results[i][0].transcript); i++; }
+    recognition.onresult = function (event) { 
+        if(event.results[i].isFinal) {
+            displayTranscript(event.results[i][0].transcript); i++; 
+        }
+    }
     recognition.onerror = function (event) {
         stopMicrophone(microphone);
         reecognition.stop();
