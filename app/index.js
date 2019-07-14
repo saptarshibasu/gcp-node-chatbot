@@ -24,4 +24,4 @@ const port = process.env.APP_PORT || 4000;
 const appName = config.get('app_name');
 
 const httpServer = http.createServer(app);
-httpServer.listen(port, () => console.log(`${appName} Listening on port ${port}...`));
+httpServer.listen(port, () => winston.info(`${appName} Listening on port ${port}...`));
