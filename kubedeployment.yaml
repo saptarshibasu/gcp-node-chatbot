@@ -39,7 +39,7 @@ kind: Ingress
 metadata:
   name: chatbot-ing
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: chatbot-ip
+    kubernetes.io/ingress.global-static-ip-name: gcp-node-chatbot-ip
 spec:
   backend:
     serviceName: chatbot-svc
