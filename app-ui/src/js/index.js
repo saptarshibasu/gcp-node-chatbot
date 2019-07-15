@@ -50,7 +50,7 @@ function acceptVoice(recognition, microphone) {
     recognition.onresult = function (event) { 
         if(event.results[i].isFinal && lastResult !== event.results[i][0].transcript) {
             displayUserTranscript(event.results[i][0].transcript); 
-            lastResult = event.results[i][0];
+            lastResult = event.results[i][0].transcript;
             i++; 
             $.ajax({
                 url: "api/grocery/query",
