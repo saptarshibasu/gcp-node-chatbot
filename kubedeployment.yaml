@@ -29,7 +29,7 @@ spec:
           - name: GOOGLE_APPLICATION_CREDENTIALS
             value: /var/secrets/google/key.json
           - name: DUMMY_VAR_FOR_REDEPLOYMENT
-            value: a4
+            value: a5
 ---
 apiVersion: v1
 kind: Service
