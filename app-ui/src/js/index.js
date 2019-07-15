@@ -37,21 +37,23 @@ $(".home__container__speech-btn").click(function () {
 
 function acceptVoice(recognition, microphone) {
     let i = 0;
+    let lastResult = '';
 
     startMicrophone(microphone);
 
     recognition.lang = 'en-US';
     recognition.interimResults = false;
     recognition.continuous = true;
+    
 
     recognition.onstart = function () { console.log("start") }
     recognition.onresult = function (event) { 
-        if(event.results[i].isFinal) {
+        if(event.results[i].isFinal && lastResult !== event.results[i][0].transcript) {
             displayUserTranscript(event.results[i][0].transcript); i++; 
             $.ajax({
                 url: "api/grocery/query",
                 method: "POST",
-                data: JSON.stringify({"query": event.results[i][0].transcript}),
+                data: JSON.stringify({"query": event.results[i-1][0].transcript}),
                 dataType: 'json',
                 contentType: "application/json",
                  success: function(result,status,jqXHR ){
