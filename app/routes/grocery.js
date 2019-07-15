@@ -39,9 +39,9 @@ router.post('/grocery/query', async (request, response) => {
       const responses = await sessionClient.detectIntent(postrequest);
       winston.info('Detected intent');
       const result = responses[0].queryResult;
-      winston.info(`  Query: ${result.queryText}`);
-      winston.info(`  Response: ${result.fulfillmentText}`);
-      res.send({"response": result.fulfillmentText});
+      winston.info(`Query: ${result.queryText}`);
+      winston.info(`Response: ${result.fulfillmentText}`);
+      response.send({"response": result.fulfillmentText});
 });
 
 function getPrice(agent) {
