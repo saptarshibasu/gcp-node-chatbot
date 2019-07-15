@@ -47,7 +47,20 @@ function acceptVoice(recognition, microphone) {
     recognition.onstart = function () { console.log("start") }
     recognition.onresult = function (event) { 
         if(event.results[i].isFinal) {
-            displayTranscript(event.results[i][0].transcript); i++; 
+            displayUserTranscript(event.results[i][0].transcript); i++; 
+            $.ajax({
+                url: "api/grocery/query",
+                method: "POST",
+                data: JSON.stringify({"query": event.results[i][0].transcript}),
+                dataType: 'json',
+                contentType: "application/json",
+                 success: function(result,status,jqXHR ){
+                    displayAgentTranscript(result.response);
+                 },
+                 error(jqXHR, textStatus, errorThrown){
+                     console.error(errorThrown);
+                 }
+            }); 
         }
     }
     recognition.onerror = function (event) {
@@ -71,6 +84,10 @@ function stopMicrophone(element) {
     }
 }
 
-function displayTranscript(transcript) {
+function displayUserTranscript(transcript) {
     $(".home__container__transcript").find("ul").prepend(`<li class="transcript-container--user"><span class="transcript-container__transcript--user">${transcript}</span></li>`);
+}
+
+function displayAgentTranscript(transcript) {
+    $(".home__container__transcript").find("ul").prepend(`<li class="transcript-container--agent"><span class="transcript-container__transcript--agent">${transcript}</span></li>`);
 }

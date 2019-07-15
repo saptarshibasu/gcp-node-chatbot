@@ -18,6 +18,14 @@ spec:
           image: gcr.io/gcp-node-chatbot/chatbot:latest
           ports:
             - containerPort: 4000
+          volumeMounts:
+          - name: dialogflow-key
+            mountPath: /var/secrets/google
+          env:
+          - name: GOOGLE_APPLICATION_CREDENTIALS
+            value: /var/secrets/google/key.json
+          - name: DUMMY_VAR_FOR_REDEPLOYMENT
+            value: 1
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
