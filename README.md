@@ -17,7 +17,7 @@ Note:
 
 # Cloud Setup
 
-## Google Cloud Console
+## Google Cloud
 
 - Create a new project named "gcp-node-chatbot" from Google Console
 - Create the following items using the commands given below
@@ -27,12 +27,13 @@ Note:
 ```
 gcloud config set project gcp-node-chatbot
 gcloud config set compute/zone asia-south1-a
-gcloud container clusters create chatbot --zone asia-south1-a
+gcloud container clusters create chatbot --zone asia-south1-a --num-nodes 1
 gcloud compute addresses create gcp-node-chatbot-ip --global
 ```
 - Create a service account named "dialogflow-custom" and assign the role "Dialogflow API Client" from Google Console . Create a key for the account.
 - Create a secret named "dialogflow-key" with the downloaded key
 ```
+gcloud container clusters get-credentials chatbot
 kubectl create secret generic dialogflow-key --from-file=key.json=PATH-TO-KEY-FILE.json
 ```
 - Create a build trigger to poll master branch from Google Console
