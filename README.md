@@ -1,6 +1,6 @@
 # Chatbot Using NodeJs, Kubernetes and Google Dialogflow on Google Cloud Platform
 
-![Image](../master/chatbot.jpeg?raw=true | width=100)
+![Chatbot Image](../master/chatbot.jpeg?raw=true)
 
 
 # Required Softwares
