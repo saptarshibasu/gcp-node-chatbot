@@ -13,28 +13,35 @@
 
 Note: 
 
-- Vagrant is useful for creating and testing Docker images in a local Windows environment. However, the existing Vagrantfile is not in an working state due to some lates updates in Ubuntu or Docker. This is an area that needs some additional work
+- Vagrant is useful for creating and testing Docker images in a local Windows environment
 
 # Cloud Setup
 
 ## Google Cloud Console
 
-- Create a new project named "gcp-node-chatbot"
-- Create a new Kubernetes cluster named "chatbot" in region "asia-south1-a"
-- Reserve a static IP named "gcp-node-chatbot-ip"
-- Create a managed certificate named "gcp-node-chatbot-cert". A domain name needs to be provided
-- Create a service account named "dialogflow-custom" and assign the role "Dialogflow API Client". Create a key for the account.
+- Create a new project named "gcp-node-chatbot" from Google Console
+- Create the following items using the commands given below
+  - a Kubernetes cluster named "chatbot" in region "asia-south1-a" 
+  - a static IP named "gcp-node-chatbot-ip"
+
+```
+gcloud config set project gcp-node-chatbot
+gcloud config set compute/zone asia-south1-a
+gcloud container clusters create chatbot --zone asia-south1-a
+gcloud compute addresses create gcp-node-chatbot-ip --global
+```
+- Create a service account named "dialogflow-custom" and assign the role "Dialogflow API Client" from Google Console . Create a key for the account.
 - Create a secret named "dialogflow-key" with the downloaded key
-- Create a build trigger to poll from master branch
+```
+kubectl create secret generic dialogflow-key --from-file=key.json=PATH-TO-KEY-FILE.json
+```
+- Create a build trigger to poll master branch from Google Console
 
 Note: 
 
 - The names given above are referred to in cloudbuild.yaml and kubedeployment.yaml
 - The project name is also used in Express route and it needs to be externalized in a configuration file
-- A domain name is required for creating managed certificate ()
-- A managed certificate is required for TLS (HTTPS) 
-- TLS (HTTPS) is required for communicating with Google DialogFlow. Also, latest version of Chrome doesn't work without TLS (HTTPS)
-- Default SSL policy is minimum TLS 1.0. If browser doesn't support cipher suites that comes with the default SSL profile, create a new SSL profile with TLS 1.2 and link it with the managed certificate
+- A domain name is required for creating managed certificate (Replace the domain name in kubedeployment.yaml)
 
 ## Google DialogFlow
 

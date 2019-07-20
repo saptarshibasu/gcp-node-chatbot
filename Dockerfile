@@ -7,7 +7,9 @@ COPY app-ui/ /home/chatbotui
 RUN mkdir /home/chatbotui/.npm; \
     npm config set prefix /home/chatbotui/.npm; \
     npm install --quiet --no-progress -g webpack@4.8.3; \
-	npm install --quiet --no-progress;
+	npm install --quiet --no-progress; \
+    node node_modules/node-sass/scripts/install.js; \
+    npm rebuild node-sass
 ENV PATH=/home/chatbotui/.npm/bin:$PATH
 RUN	npm run build
 
