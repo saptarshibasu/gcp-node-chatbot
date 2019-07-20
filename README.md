@@ -59,6 +59,7 @@ Note:
 Note:
 
 - If the entities are not correctly identified in speech, go to the history History section and do the categorization mandatory. DialogFlow will then train the agent accordingly
+- If the browser throws SSL Cipher suite related error, create a new SSL policy through Google Console, set the profile as "Compatible" and link the ingress app to it
 
 # Build
 
