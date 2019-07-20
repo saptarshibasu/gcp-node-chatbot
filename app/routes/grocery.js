@@ -8,9 +8,9 @@ const router = express.Router();
 
 const PROJECT_ID = 'gcp-node-chatbot';
 
-// const posts = require('../resources/posts.json');
 
-router.post('/grocery', async (request, response) => {
+// Webhook endpoint 
+router.post('/grocery/webhook', async (request, response) => {
     winston.info('within the grocery webhook');
     const agent = new WebhookClient({ request, response });
     let intentMap = new Map();
