@@ -52,7 +52,7 @@ spec:
           - name: GOOGLE_APPLICATION_CREDENTIALS
             value: /var/secrets/google/key.json
           - name: DUMMY_VAR_FOR_REDEPLOYMENT
-            value: a6
+            value: a7
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
