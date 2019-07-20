@@ -13,6 +13,7 @@ metadata:
   labels: 
     app: chatbot-svc
 spec:
+  type: NodePort
   selector:
     app: chatbot
   ports:
@@ -51,7 +52,7 @@ spec:
           - name: GOOGLE_APPLICATION_CREDENTIALS
             value: /var/secrets/google/key.json
           - name: DUMMY_VAR_FOR_REDEPLOYMENT
-            value: a6
+            value: a5
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
