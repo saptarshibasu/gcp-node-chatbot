@@ -3,29 +3,25 @@ const winston = require('winston');
 const {WebhookClient} = require('dialogflow-fulfillment');
 const dialogflow = require('dialogflow');
 const uuid = require('uuid');
+const config = require('config');
 
 const router = express.Router();
 
-const PROJECT_ID = 'gcp-node-chatbot';
-
-
 // Webhook endpoint 
 router.post('/grocery/webhook', async (request, response) => {
-    winston.info('within the grocery webhook');
+    winston.info('Within the grocery webhook');
     const agent = new WebhookClient({ request, response });
     let intentMap = new Map();
     intentMap.set('Grocery', getPrice);
-    winston.info('within the grocery webhook - going to call handle request');
     agent.handleRequest(intentMap);
-    winston.info('within the grocery webhook - handle request call returned');
 });
 
 router.post('/grocery/query', async (request, response) => {
-    winston.info('within the grocery query');
+    winston.info('Within the grocery query');
     const query = request.body.query;
     const sessionId = uuid.v4();
     const sessionClient = new dialogflow.SessionsClient();
-    const sessionPath = sessionClient.sessionPath(PROJECT_ID, sessionId);
+    const sessionPath = sessionClient.sessionPath(config.get('dialogflow_project_id'), sessionId);
     const postrequest = {
         session: sessionPath,
         queryInput: {
@@ -36,12 +32,12 @@ router.post('/grocery/query', async (request, response) => {
         },
       };
     
-      const responses = await sessionClient.detectIntent(postrequest);
-      winston.info('Detected intent');
-      const result = responses[0].queryResult;
-      winston.info(`Query: ${result.queryText}`);
-      winston.info(`Response: ${result.fulfillmentText}`);
-      response.send({"response": result.fulfillmentText});
+    const responses = await sessionClient.detectIntent(postrequest);
+    winston.info('Detected intent');
+    const result = responses[0].queryResult;
+    winston.info(`Query: ${result.queryText}`);
+    winston.info(`Response: ${result.fulfillmentText}`);
+    response.send({"response": result.fulfillmentText});
 });
 
 function getPrice(agent) {

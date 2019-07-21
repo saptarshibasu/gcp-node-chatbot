@@ -1,3 +1,4 @@
 {
-    "app_name": "GCP NodeJS Chatbot"
+    "app_name": "GCP NodeJS Chatbot",
+    "dialogflow_project_id": "gcp-node-chatbot"
 }
