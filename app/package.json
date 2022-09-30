@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/saptarshibasu/gcp-node-chatbot#readme",
   "dependencies": {
-    "@hapi/joi": "15.1.0",
+    "@hapi/joi": "15.1.1",
     "actions-on-google": "^2.8.0",
     "bluebird": "3.5.5",
     "compression": "1.7.4",
